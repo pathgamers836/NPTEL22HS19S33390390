@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Certificate Viewer</title>
+</head>
+<body>
+  <h2 style="text-align:center">Your Uploaded Document</h2>
+  <div style="text-align:center">
+    <img id="output" src="" alt="Loading image..." style="max-width:90%; border: 2px solid #ccc;" />
+  </div>
+
+  <script>
+    // Get query parameter from URL
+    const params = new URLSearchParams(window.location.search);
+    const imgName = params.get("q");
+
+    // If image name exists, set it as image source
+    if (imgName) {
+      document.getElementById("output").src = imgName;
+    } else {
+      document.getElementById("output").alt = "No image specified in URL (?q=filename)";
+    }
+  </script>
+</body>
+</html>
